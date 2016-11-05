@@ -1,0 +1,3 @@
+1. FreeIPA VM has been setup, now I need to set up the services.
+As I build i intend to script the configurations. The tasks will probably be thrown into
+soem "post install" script which would be ran after the virt-install script
