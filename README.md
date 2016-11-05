@@ -1,2 +1,2 @@
 # iac_config
-Repository to contain my local network configurations, and provisioning scripts.
+Repository to contain my private server configurations, and provisioning scripts.
