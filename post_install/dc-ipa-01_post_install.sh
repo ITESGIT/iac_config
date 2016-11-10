@@ -1,38 +1,22 @@
-#!/bin/bash
+/usr/bin/echo "192.168.1.10 dc-ipa-01.lukepafford.com dc-ipa-01" >> /etc/hosts
+/usr/bin/echo "dc-ipa-01.lukepafford.com" > /etc/hostname
 
-# Manually configure hostname and hostfile
-echo "192.168.122.14 dc-ipa-01.lukepafford.com dc-ipa-01" >> /etc/hosts
-echo "dc-ipa-01.lukepafford.com" > /etc/hostname
+echo NETWORKING=yes >> /etc/sysconfig/network
+echo HOSTNAME=dc-ipa-01.lukepafford.com >> /etc/sysconfig/network
+echo GAETWAY=192.168.1.254 >> /etc/sysconfig/network
 
-#open required ports
-systemctl start firewalld.service
-systemctl enable firewalld.service
-firewall-cmd --permanent --add-port={80/tcp,443/tcp,389/tcp,636/tcp,88/tcp,464/tcp,53/tcp,88/udp,464/udp,53/udp,123/udp}
-firewall-cmd --reload
+# Create lukepafford admin account
+useradd lukepafford
+usermod -aG wheel lukepafford
+echo *encrypted password* | passwd --stdin lukepafford
 
-#install the required packages
-yum install ipa-server ipa-server-dns
+yum install ipa-server -y
+yum install ipa-server-dns -y
 
-# The server is now ready to run the command "ipa-server-install" which is the main
-# configuration utility. this is interactive. I am documenting the recommended responses
-# to each question here, however ultimately these answers should be pregenerated in an answer file.
-# this should theoretically allow for a complete automated install from the ground up for the IPA
-# server
+# Download haveged and start service to generate entropy for
+# ipa-server install
+yum install haveged -y
+systemctl start haveged
 
-#Do you want to configure integrated DNS (Bind)? [no]: YES
-#Server Host Name: dc-ipa-01.lukepafford.com (THIS MUST BE LOWERCASE)
-#Please configure the Domain name lukepafford.com
-#Please provide a realm name LUKEPAFFORD.com
-#Directory Manager Password: (Encrypt a password in script)
-#Confirm Password: 
-#IPA admin password: (Encrypt a password in script)
-#Confirm Password:
-#Existing bind configuration detected. Overwrite?: YES
-#Do you want to configure dns forwards?: YES
-#Enter an IP address for a DNS forwarder, or press enter to skip: 8.8.8.8
-#Enter an IP address for another DNS forwardser, or press enter to skip: 8.8.4.4
-#Skip next ip forwarder prompt
-#Do you want to configure the reverse zone?: YES
-#Please specify the reverse zone name: [Use default]
-#Do you want to configure the system with these values?: YES
+ipa-server-install --unattended --realm=LUKEPAFFORD.com --domain=lukepafford.com --ds-password=*encrypted password* --admin-password=*encrypted password* --hostname=dc-ipa-01.lukepafford.com --ip-address=192.168.1.10 --setup-dns --forwarder=8.8.8.8 --forwarder=8.8.4.4
 
