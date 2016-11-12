@@ -4,7 +4,7 @@ virt-install \
 --connect qemu+ssh://lukepafford@VH-KVM-01/system \
 --name dc-ipa-01 \
 --disk path=/var/lib/libvirt/images/dc-ipa-01,size=35 \
---memory 1024 \
+--memory 2048 \
 --vcpus 1 \
 --network bridge=br0  \
 --graphics vnc \
