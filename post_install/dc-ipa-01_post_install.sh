@@ -3,6 +3,7 @@
 
 read -s -p "Enter password to be used for freeipa directory server, and admin accounts: "
 
+# Configure networking for freeipa server
 /usr/bin/echo "192.168.1.10 dc-ipa-01.lukepafford.com dc-ipa-01" >> /etc/hosts
 /usr/bin/echo "dc-ipa-01.lukepafford.com" > /etc/hostname
 
@@ -15,13 +16,15 @@ useradd lukepafford
 usermod -aG wheel lukepafford
 echo "$REPLY" | passwd --stdin lukepafford
 
+# Perform yum update before installing server
+yum update -y
+
+
+# Install packages required for freeipa
 yum install ipa-server -y
 yum install ipa-server-dns -y
 
-# Download haveged and start service to generate entropy for
-# ipa-server install
-yum install haveged -y
-systemctl start haveged
 
+# install freeipa
 ipa-server-install --unattended --realm=LUKEPAFFORD.com --domain=lukepafford.com --ds-password="$REPLY" --admin-password="$REPLY" --hostname=dc-ipa-01.lukepafford.com --ip-address=192.168.1.10 --setup-dns --forwarder=8.8.8.8 --forwarder=8.8.4.4
 
