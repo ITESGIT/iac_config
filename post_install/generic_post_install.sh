@@ -1,3 +1,7 @@
+# This generic post install script will be used on every installed machine or server. Eventually I will develop a 
+# "post_install.d" directory which will follow linux standards of modularizing things. I will run the post install script
+# on every machine, and customize specific machines. Most examples will include the "join_domain" etc
+
 # Prompt for password to be used to configure all accounts. This single password is just used
 # For lab purposes. Prod should have one password for each account
 
@@ -11,10 +15,3 @@ echo "$REPLY" | passwd --stdin lukepafford
 # Perform yum update before installing server
 yum update -y
 
-# Install ovirt repository
-yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm -y
-
-# Install the ovirt engine packages
-yum -y install ovirt-engine
-
-# Run Engine setup ( provide answer files to script this)
