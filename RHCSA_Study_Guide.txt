@@ -1,0 +1,75 @@
+Understand and use essential tools
+------------------------------------
+complete | Access a shell prompt and issue commands with correct syntax | Solution: Through GUI its in top left Applications > Utilities > Terminal
+complete | Use input-output redirection (>, >>, |, 2>, etc.) | Solution: > sends output to file, >> appends output to file, | pipes output to a command, 2> outputs standard error to a file.
+complete | Use grep and regular expressions to analyze text | Solution: man grep
+complete | Access remote systems using ssh | Solution: man ssh
+complete | Log in and switch users in multiuser targets | Solution: ssh user@host; su user2switch
+complete | Archive, compress, unpack, and uncompress files using tar, star, gzip, and bzip2 | Solution: Create gzip: tar -czvf nameoftar.tar /directories /to /tar, Create bzip2: tar -cjvf nameoftar.tar /directories /to /tar
+complete | Create and edit text files | Solution: Vi is a text editor installed on every linux system
+complete | Create, delete, copy, and move files and directories | Solution: Delete files: rm /file/to/remove, Move files: mv /file/to/move /new/location, Copy files: cp /file/to/copy /new/copy
+complete | Create hard and soft links | Solution: ln -s /target/to/create/link link_name, -s is for soft links
+complete | List, set, and change standard ugo/rwx permissions | Solution: man chmod
+complete | Locate, read, and use system documentation including man, info, and files in /usr/share/doc | Solution: use man for quick documentation. Other import files are generaly found in /usr/share/doc
+Note: Red Hat may use applications during the exam that are not included in Red Hat Enterprise Linux for the purpose of evaluating candidate's abilities to meet this objective.
+
+Operate running systems
+-------------------------
+incomplete | Boot, reboot, and shut down a system normally | Solution: 
+incomplete | Boot systems into different targets manually | Solution: 
+incomplete | Interrupt the boot process in order to gain access to a system | Solution: 
+incomplete | Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes | Solution: 
+incomplete | Locate and interpret system log files and journals | Solution: 
+incomplete | Access a virtual machine's console | Solution: 
+incomplete | Start and stop virtual machines | Solution: 
+incomplete | Start, stop, and check the status of network services | Solution: 
+incomplete | Securely transfer files between systems | Solution: 
+
+Configure local storage
+-------------------------
+incomplete | List, create, delete partitions on MBR and GPT disks | Solution: 
+incomplete | Create and remove physical volumes, assign physical volumes to volume groups, and create and delete logical volumes | Solution: 
+incomplete | Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label | Solution: 
+incomplete | Add new partitions and logical volumes, and swap to a system non-destructively | Solution: 
+
+Create and configure file systems
+---------------------------------
+incomplete | Create, mount, unmount, and use vfat, ext4, and xfs file systems | Solution: 
+incomplete | Mount and unmount CIFS and NFS network file systems | Solution: 
+incomplete | Extend existing logical volumes | Solution: 
+incomplete | Create and configure set-GID directories for collaboration | Solution: 
+incomplete | Create and manage Access Control Lists (ACLs) | Solution: 
+incomplete | Diagnose and correct file permission problems | Solution: 
+
+Deploy, configure, and maintain systems
+---------------------------------------
+incomplete | Configure networking and hostname resolution statically or dynamically | Solution: 
+incomplete | Schedule tasks using at and cron | Solution: 
+incomplete | Start and stop services and configure services to start automatically at boot | Solution: 
+incomplete | Configure systems to boot into a specific target automatically | Solution: 
+incomplete | Install Red Hat Enterprise Linux automatically using Kickstart | Solution: 
+incomplete | Configure a physical machine to host virtual guests | Solution: 
+incomplete | Install Red Hat Enterprise Linux systems as virtual guests | Solution: 
+incomplete | Configure systems to launch virtual machines at boot | Solution: 
+incomplete | Configure network services to start automatically at boot | Solution: 
+incomplete | Configure a system to use time services | Solution: 
+incomplete | Install and update software packages from Red Hat Network, a remote repository, or from the local file system | Solution: 
+incomplete | Update the kernel package appropriately to ensure a bootable system | Solution: 
+incomplete | Modify the system bootloader | Solution: 
+
+Manage users and groups
+-------------------------
+incomplete | Create, delete, and modify local user accounts | Solution: 
+incomplete | Change passwords and adjust password aging for local user accounts | Solution: 
+incomplete | Create, delete, and modify local groups and group memberships | Solution: 
+incomplete | Configure a system to use an existing authentication service for user and group information | Solution: 
+
+Manage security 
+-------------------------
+incomplete | Configure firewall settings using firewall-config, firewall-cmd, or iptables | Solution: 
+incomplete | Configure key-based authentication for SSH | Solution: 
+incomplete | Set enforcing and permissive modes for SELinux | Solution: 
+incomplete | List and identify SELinux file and process context | Solution: 
+incomplete | Restore default file contexts | Solution: 
+incomplete | Use boolean settings to modify system SELinux settings | Solution: 
+incomplete | Diagnose and address routine SELinux policy violations | Solution: 
