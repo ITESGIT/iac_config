@@ -15,60 +15,60 @@ Note: Red Hat may use applications during the exam that are not included in Red 
 
 Operate running systems
 -------------------------
-incomplete | Boot, reboot, and shut down a system normally | Solution: 
-incomplete | Boot systems into different targets manually | Solution: 
-incomplete | Interrupt the boot process in order to gain access to a system | Solution: 
-incomplete | Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes | Solution: 
-incomplete | Locate and interpret system log files and journals | Solution: 
-incomplete | Access a virtual machine's console | Solution: 
-incomplete | Start and stop virtual machines | Solution: 
-incomplete | Start, stop, and check the status of network services | Solution: 
-incomplete | Securely transfer files between systems | Solution: 
+complete | Boot, reboot, and shut down a system normally | Solution: systemctl reboot
+complete | Boot systems into different targets manually | Solution: systemctl isolate
+complete | Interrupt the boot process in order to gain access to a system | Solution: append rd.break to kernel parameters
+complete | Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes | Solution: man nice, renice
+complete | Locate and interpret system log files and journals | Solution: /var/log 
+complete | Access a virtual machine's console | Solution: virt-manager
+complete | Start and stop virtual machines | Solution: virsh start domain
+complete | Start, stop, and check the status of network services | Solution: systemctl
+complete | Securely transfer files between systems | Solution: scp
 
 Configure local storage
 -------------------------
-incomplete | List, create, delete partitions on MBR and GPT disks | Solution: 
-incomplete | Create and remove physical volumes, assign physical volumes to volume groups, and create and delete logical volumes | Solution: 
-incomplete | Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label | Solution: 
-incomplete | Add new partitions and logical volumes, and swap to a system non-destructively | Solution: 
+complete | List, create, delete partitions on MBR and GPT disks | Solution: man parted
+complete | Create and remove physical volumes, assign physical volumes to volume groups, and create and delete logical volumes | Solution: man pvcreate, vgcreate, lvcreate
+complete | Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label | Solution: extract UUID from the blkid command
+complete | Add new partitions and logical volumes, and swap to a system non-destructively | Solution: man parted, man lvcreate
 
 Create and configure file systems
 ---------------------------------
-incomplete | Create, mount, unmount, and use vfat, ext4, and xfs file systems | Solution: 
-incomplete | Mount and unmount CIFS and NFS network file systems | Solution: 
-incomplete | Extend existing logical volumes | Solution: 
-incomplete | Create and configure set-GID directories for collaboration | Solution: 
-incomplete | Create and manage Access Control Lists (ACLs) | Solution: 
-incomplete | Diagnose and correct file permission problems | Solution: 
+complete | Create, mount, unmount, and use vfat, ext4, and xfs file systems | Solution: man mkfs
+complete | Mount and unmount CIFS and NFS network file systems | Solution: man mount
+complete | Extend existing logical volumes | Solution: man lvextend
+complete | Create and configure set-GID directories for collaboration | Solution: man chmod
+complete | Create and manage Access Control Lists (ACLs) | Solution: man getacl, setacl
+complete | Diagnose and correct file permission problems | Solution: man chmod
 
 Deploy, configure, and maintain systems
 ---------------------------------------
-incomplete | Configure networking and hostname resolution statically or dynamically | Solution: 
-incomplete | Schedule tasks using at and cron | Solution: 
-incomplete | Start and stop services and configure services to start automatically at boot | Solution: 
-incomplete | Configure systems to boot into a specific target automatically | Solution: 
-incomplete | Install Red Hat Enterprise Linux automatically using Kickstart | Solution: 
-incomplete | Configure a physical machine to host virtual guests | Solution: 
-incomplete | Install Red Hat Enterprise Linux systems as virtual guests | Solution: 
-incomplete | Configure systems to launch virtual machines at boot | Solution: 
-incomplete | Configure network services to start automatically at boot | Solution: 
-incomplete | Configure a system to use time services | Solution: 
-incomplete | Install and update software packages from Red Hat Network, a remote repository, or from the local file system | Solution: 
-incomplete | Update the kernel package appropriately to ensure a bootable system | Solution: 
-incomplete | Modify the system bootloader | Solution: 
+complete | Configure networking and hostname resolution statically or dynamically | Solution: modify /etc/hosts, /etc/resolv.conf/ etc/nsswitch.conf, /etc/hostname
+complete | Schedule tasks using at and cron | Solution: configure system cron in /etc/crontab, local cron with command crontab -e
+complete | Start and stop services and configure services to start automatically at boot | Solution: systemctl enable/disable servicename
+complete | Configure systems to boot into a specific target automatically | Solution: systemctl set-default
+complete | Install Red Hat Enterprise Linux automatically using Kickstart | Solution:  research kickstart solutions.
+complete | Configure a physical machine to host virtual guests | Solution: install following packages: qemu-kvm, libvirt, libvirt-client, virt-install, virt-manager, virt-top, virt-viewer
+complete | Install Red Hat Enterprise Linux systems as virtual guests | Solution: virt-install
+complete | Configure systems to launch virtual machines at boot | Solution: virsh autostart domain_name
+complete | Configure network services to start automatically at boot | Solution: systemctl enable service
+complete | Configure a system to use time services | Solution: configure /etc/ntp.conf
+complete | Install and update software packages from Red Hat Network, a remote repository, or from the local file system | Solution: man yum, yum.conf
+complete | Update the kernel package appropriately to ensure a bootable system | Solution: rpm -ivh kernel_version.rpm *TAKE SNAPSHOT FIRST*
+incomplete | Modify the system bootloader | Solution:
 
 Manage users and groups
 -------------------------
-incomplete | Create, delete, and modify local user accounts | Solution: 
-incomplete | Change passwords and adjust password aging for local user accounts | Solution: 
-incomplete | Create, delete, and modify local groups and group memberships | Solution: 
-incomplete | Configure a system to use an existing authentication service for user and group information | Solution: 
+complete | Create, delete, and modify local user accounts | Solution: man useradd, userdel, usermod
+complete | Change passwords and adjust password aging for local user accounts | Solution: man passwd
+complete | Create, delete, and modify local groups and group memberships | Solution: man groupadd, groupdel, groupmod
+complete | Configure a system to use an existing authentication service for user and group information | Solution: For simple solution, use authconfig-gui or system-config-authentication. Required packages are openldap-clients, openldap, andnss-pam-ldapd
 
 Manage security 
 -------------------------
-incomplete | Configure firewall settings using firewall-config, firewall-cmd, or iptables | Solution: 
-incomplete | Configure key-based authentication for SSH | Solution: 
-incomplete | Set enforcing and permissive modes for SELinux | Solution: 
+complete | Configure firewall settings using firewall-config, firewall-cmd, or iptables | Solution: Use firewall-config, its easier
+complete | Configure key-based authentication for SSH | Solution: ssh-keygen, ssh-copy-id
+complete | Set enforcing and permissive modes for SELinux | Solution: Modify /etc/selinux/config
 incomplete | List and identify SELinux file and process context | Solution: 
 incomplete | Restore default file contexts | Solution: 
 incomplete | Use boolean settings to modify system SELinux settings | Solution: 
