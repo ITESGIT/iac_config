@@ -1,0 +1,12 @@
+This document will give a summary of the configurations that all clients will need
+to receive services from all the servers. To implement these configurations, a config management
+tool would be used.
+
+DNS
+    - /etc/resolv.conf
+
+LDAP
+    - Authconfig
+
+DHCP
+
