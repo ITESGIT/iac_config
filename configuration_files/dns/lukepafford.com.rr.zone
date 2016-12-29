@@ -1,0 +1,35 @@
+$ORIGIN 1.168.192.in-addr.arpa.
+$TTL 6H
+
+;; Begin SOA record
+@ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
+	2016122700 ;; serial numbervalue
+	3600 ;; secondary name server requests changes every hour
+	300  ;; secondary name servers will retry a change request every 5 minutes
+	604800 ;; secondary name server will etry change requests for a week before 
+	       ;; it stops considering the primary server as an authority
+	600    ;; time other nameservers cache the zones information. Unsure of purpose
+)
+
+
+;; Begin NS records
+;; All lines that begin with "IN" require at least one line of whitespace
+	IN 	NS 	dns-bind-01.lukepafford.com.
+	IN 	NS 	dns-bind-02.lukepafford.com.
+
+;; Begin PTR records
+;; DNS Servers
+5 	IN 	PTR  	dns-bind-01.lukepafford.com. 
+6	IN 	PTR  	dns-bind-02.lukepafford.com. 
+7	IN	PTR  	dns-bind-03.lukepafford.com. 
+
+;; DHCP Servers
+15	IN 	PTR	dhcp-isc-01.lukepafford.com.
+
+;; Physical Hosts
+70 	IN 	PTR 	vh-esxi-01.lukepafford.com.
+102  	IN 	PTR 	vh-kvm-01.lukepafford.com.
+
+;; Laptops
+64	IN 	PTR 	centos7-l01.lukepafford.com.
+
