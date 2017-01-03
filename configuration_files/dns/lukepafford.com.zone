@@ -17,6 +17,18 @@ $TTL 6H
 	IN 	NS 	dns-bind-01.lukepafford.com.
 	IN 	NS 	dns-bind-02.lukepafford.com.
 
+;; FreeIPA created DNS records required for Kerberos, ldap, and NTP
+_kerberos-master._tcp.lukepafford.com. 86400 IN SRV 0 100 88 dc-ipa-01.lukepafford.com.
+_kerberos-master._udp.lukepafford.com. 86400 IN SRV 0 100 88 dc-ipa-01.lukepafford.com.
+_kerberos._tcp.lukepafford.com.        86400 IN SRV 0 100 88 dc-ipa-01.lukepafford.com.
+_kerberos._udp.lukepafford.com.        86400 IN SRV 0 100 88 dc-ipa-01.lukepafford.com.
+_kerberos.lukepafford.com.             86400 IN TXT "LUKEPAFFORD.COM"
+_kpasswd._tcp.lukepafford.com.         86400 IN SRV 0 100 464 dc-ipa-01.lukepafford.com.
+_kpasswd._udp.lukepafford.com.         86400 IN SRV 0 100 464 dc-ipa-01.lukepafford.com.
+_ldap._tcp.lukepafford.com.            86400 IN SRV 0 100 389 dc-ipa-01.lukepafford.com.
+_ntp._udp.lukepafford.com.             86400 IN SRV 0 100 123 dc-ipa-01.lukepafford.com.
+ipa-ca.lukepafford.com.                86400 IN A 192.168.1.1
+
 ;; Begin A records
 ;; Domain Controller Servers
 dc-ipa-01       IN  A   192.168.1.1
