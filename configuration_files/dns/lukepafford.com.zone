@@ -3,12 +3,12 @@ $TTL 6H
 
 ;; Begin SOA record
 @ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
-	2016122700 ;; serial numbervalue
+	2017010200 ;; serial numbervalue
 	3600 ;; secondary name server requests changes every hour
 	300  ;; secondary name servers will retry a change request every 5 minutes
 	604800 ;; secondary name server will etry change requests for a week before 
 	       ;; it stops considering the primary server as an authority
-	600    ;; time other nameservers cache the zones information. Unsure of purpose
+	3600    ;; time other nameservers cache the zones information. Unsure of purpose
 )
 
 
@@ -18,6 +18,10 @@ $TTL 6H
 	IN 	NS 	dns-bind-02.lukepafford.com.
 
 ;; Begin A records
+;; Domain Controller Servers
+dc-ipa-01       IN  A   192.168.1.1
+dc-ipa-02       IN  A   192.168.1.2
+
 ;; DNS Servers
 dns-bind-01     IN  A   192.168.1.5
 dns-bind-02     IN  A   192.168.1.6
