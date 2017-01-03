@@ -35,5 +35,5 @@ $TTL 6H
 102  	IN 	PTR 	vh-kvm-01.lukepafford.com.
 
 ;; Laptops
-64	    IN 	PTR 	centos7-l01.lukepafford.com.
+160	    IN 	PTR 	centos7-l01.lukepafford.com.
 
