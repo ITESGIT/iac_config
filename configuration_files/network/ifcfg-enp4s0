@@ -1,0 +1,6 @@
+DEVICE="enp4s0"
+ONBOOT="yes"
+NM_CONTROLLED="no"
+#TYPE="Ethernet"
+BRIDGE=br0
+BOOTPROTO="static"
