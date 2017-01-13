@@ -3,7 +3,7 @@ $TTL 6H
 
 ;; Begin SOA record
 @ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
-	2017010700 ;; serial numbervalue
+	2017011300 ;; serial numbervalue
 	300 ;; secondary name server requests changes every 5 minutes 
 	60  ;; secondary name servers will retry a change request every 1 minute
 	604800 ;; secondary name server will etry change requests for a week before 
@@ -35,10 +35,39 @@ $TTL 6H
 
 ;; File Servers
 25      IN  PTR     file-nfs-01.lukepafford.com.
+30      IN  PTR     file-samba-01.lukepafford.com.
+31      IN  PTR     file-samba-02.lukepafford.com.
+
+;; Backup Servers
+40      IN  PTR     backup-amanda-01.lukepafford.com.
+
+;; Management Servers
+50      IN  PTR     mgr-ovirt-01.lukepafford.com.
+55      IN  PTR     rh-satellite-01.lukepafford.com.
+
+;; Mail Servers
+60      IN  PTR     mail-postfix-01.lukepafford.com.
+
+;; Monitoring Servers
+70      IN  PTR     log-nagios-01.lukepafford.com.
 
 ;; Physical Hosts
-70 	    IN 	PTR 	vh-esxi-01.lukepafford.com.
+101 	IN 	PTR 	vh-esxi-01.lukepafford.com.
 102  	IN 	PTR 	vh-kvm-01.lukepafford.com.
+
+;; Database Servers
+110     IN  PTR     db-postgresql-01.lukepafford.com.
+114     IN  PTR     db-mariadb-01.lukepafford.com.
+117     IN  PTR     db-mongodb-01.lukepafford.com.
+
+;; Web Servers
+120     IN  PTR     web-apache-01.lukepafford.com.
+125     IN  PTR     web-nginx-01.lukepafford.com.
+
+;; Proxy Servers
+130     IN  PTR     proxy-squid-01.lukepafford.com.
+134     IN  PTR     proxy-ha-01.lukepafford.com.
+137     IN  PTR     proxy-nginx-01.lukepafford.com.
 
 ;; Laptops
 160	    IN 	PTR 	centos7-l01.lukepafford.com.
