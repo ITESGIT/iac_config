@@ -1,3 +1,8 @@
-1. FreeIPA VM has been setup, now I need to set up the services.
-As I build i intend to script the configurations. The tasks will probably be thrown into
-soem "post install" script which would be ran after the virt-install script
+1. Configure bind dns dynamic updates securely with gssTSIG, configure dnsssec, and configure rndc management
+2. Setup and install Satellite 6
+3. Configure kerberized NFS server, and create automount in FreeIPA for this NFS Server
+4. Setup email server
+5. Setup Backup server
+6. Setup nagios server
+7. Setup proxy server
+
