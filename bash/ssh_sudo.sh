@@ -29,25 +29,32 @@
 # can specify a single machine.
 # This allows for flexible, secure automation.
 
-# Example Scenario:
+# Real Example Scenario:
 
-# I update the zone configuration file for dns and write a script 
+# I update the master conf file for dns and write a script 
 # to update the dns server:
 
-# scp user@central_conf_server:/path/to/zoneconf.zone ~/
-# sudo mv ~/zoneconf.zone /var/named/zoneconf.zone
-# sudo chown named:named /var/named/zoneconf.zone
-# sudo chmod 664 /var/named/zoneconf.zone
+# if [ ! -d /home/server_config ]; then
+#    sudo /usr/bin/mkdir /home/server_config
+#    sudo /usr/bin/chown server_config:service_accounts /home/server_config
+# fi
+#
+# scp server_config@centos7-l01:/home/lukepafford/Documents/iac_config/configuration_files/dns/master_named.conf ~
+# sudo /usr/bin/mv ~/master_named.conf /etc/named.conf
+# sudo /usr/bin/chown root:named /etc/named.conf
+# sudo /usr/bin/chmod 640 /etc/named.conf
 
-# I save the script at ~/dnsupdate.sh
+# I save the script at ~/bin/update_master_dns.sh
 
 # Assuming SSH, and sudoers has been properly configured I can then
 # run the following command with no interaction:
 
-# ssh_sudo.sh ~/dnsupdate.sh dns_server
+# ssh_sudo.sh ~/update_master_dns.sh dns-bind-01
 
+# --------------------------------------------------------
 # With creativity, you can create cron jobs that perform
 # remote tasks with only minimal privileges granted.
+# --------------------------------------------------------
 
 # Display usage to user
 if [[ $# -lt 2 || $# -gt 2 ]]; then
