@@ -57,8 +57,8 @@
 # --------------------------------------------------------
 
 # Display usage to user
-if [[ $# -lt 2 || $# -gt 2 ]]; then
-    echo "Usage: Remote_commands.sh script.sh remote_host"
+if [[ $# -lt 3 || $# -gt 3 ]]; then
+    echo "Usage: Remote_commands.sh script.sh user remote_host"
     exit 1
 fi
 
@@ -69,10 +69,10 @@ if [ ! -f "$1" ]; then
 fi
 
 # Confirm the remote hosts can be pinged
-if ! ping -c 1 "$2" > /dev/null 2>&1; then
-    echo "Cannot connect to host: $2" 
+if ! ping -c 1 "$3" > /dev/null 2>&1; then
+    echo "Cannot connect to host: $3" 
     exit 1
 fi
 
 script=$(base64 -w0 $1)
-ssh -t "$2" "echo $script | base64 -d | bash"
+ssh -t "$2@$3" "echo $script | base64 -d | bash"
