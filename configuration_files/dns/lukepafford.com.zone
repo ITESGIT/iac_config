@@ -3,7 +3,7 @@ $TTL 6H
 
 ;; Begin SOA record
 @ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
-	2017011400 ;; serial numbervalue
+	2017011600 ;; serial numbervalue
 	3600 ;; secondary name server requests changes every hour
 	300  ;; secondary name servers will retry a change request every 5 minutes
 	604800 ;; secondary name server will etry change requests for a week before 
