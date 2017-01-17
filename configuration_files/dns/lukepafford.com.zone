@@ -43,6 +43,9 @@ dns-bind-04     IN  A   192.168.1.8
 ;; DHCP Servers
 dhcp-isc-01     IN  A   192.168.1.15
 
+;; TFTP Servers
+pxe-tftp-01     IN  A   192.168.1.18
+
 ;; VPN Servers
 vpn-openvpn-01  IN  A   192.168.1.20
 
@@ -67,6 +70,7 @@ log-nagios-01   IN  A   192.168.1.70
 ;; Physical Hosts
 vh-esxi-01      IN  A   192.168.1.101
 vh-kvm-01       IN  A   192.168.1.102
+centos7-l01     IN  A   192.168.1.103
 
 ;; Database Servers
 db-postgresql-01 IN A   192.168.1.110
@@ -82,6 +86,4 @@ proxy-squid-01   IN A   192.168.1.130
 proxy-ha-01      IN A   192.168.1.134
 proxy-nginx-01   IN A   192.168.1.137
 
-;; Laptops
-centos7-l01     IN  A   192.168.1.160
 

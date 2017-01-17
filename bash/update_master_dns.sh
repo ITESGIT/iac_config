@@ -4,6 +4,9 @@ if [ ! -d /home/server_config ]; then
     sudo /usr/bin/mkdir /home/server_config
 fi
 
+# Make sure account can access /var/named directory
+sudo /usr/bin/chmod 755 /var/named
+
 # Ensure server_config home directory has proper permissions
 sudo /usr/bin/chown server_config:service_accounts /home/server_config
 

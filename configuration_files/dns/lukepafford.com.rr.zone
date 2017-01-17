@@ -55,6 +55,7 @@ $TTL 6H
 ;; Physical Hosts
 101 	IN 	PTR 	vh-esxi-01.lukepafford.com.
 102  	IN 	PTR 	vh-kvm-01.lukepafford.com.
+103     IN  PTR     centos7-l01.lukepafford.com.
 
 ;; Database Servers
 110     IN  PTR     db-postgresql-01.lukepafford.com.
@@ -69,7 +70,4 @@ $TTL 6H
 130     IN  PTR     proxy-squid-01.lukepafford.com.
 134     IN  PTR     proxy-ha-01.lukepafford.com.
 137     IN  PTR     proxy-nginx-01.lukepafford.com.
-
-;; Laptops
-160	    IN 	PTR 	centos7-l01.lukepafford.com.
 
