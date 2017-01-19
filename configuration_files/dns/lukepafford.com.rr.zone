@@ -48,6 +48,7 @@ $TTL 6H
 
 ;; Mail Servers
 60      IN  PTR     mail-postfix-01.lukepafford.com.
+63      IN  PTR     mail-dovecot-01.lukepafford.com.
 
 ;; Monitoring Servers
 70      IN  PTR     log-nagios-01.lukepafford.com.

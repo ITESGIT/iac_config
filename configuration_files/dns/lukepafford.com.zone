@@ -63,6 +63,7 @@ rh-satellite-01 IN  A   192.168.1.55
 
 ;; Mail Servers
 mail-postfix-01 IN  A   192.168.1.60
+mail-dovecot-01 IN  A   192.168.1.63
 
 ;; Monitoring Servers
 log-nagios-01   IN  A   192.168.1.70
