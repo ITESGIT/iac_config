@@ -3,7 +3,7 @@ $TTL 6H
 
 ;; Begin SOA record
 @ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
-	2017011600 ;; serial numbervalue
+	2017012200 ;; serial numbervalue
 	300 ;; secondary name server requests changes every 5 minutes 
 	60  ;; secondary name servers will retry a change request every 1 minute
 	604800 ;; secondary name server will etry change requests for a week before 
@@ -44,6 +44,7 @@ $TTL 6H
 
 ;; Management Servers
 50      IN  PTR     mgr-ovirt-01.lukepafford.com.
+52      IN  PTR     mgr-vcenter-01.lukepafford.com.
 55      IN  PTR     rh-satellite-01.lukepafford.com.
 
 ;; Mail Servers
