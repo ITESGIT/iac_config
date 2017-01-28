@@ -1,9 +1,9 @@
-$ORIGIN 1.168.192.in-addr.arpa.
+$ORIGIN 2.168.192.in-addr.arpa.
 $TTL 6H
 
 ;; Begin SOA record
 @ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
-	2017012200 ;; serial numbervalue
+	2017012300 ;; serial numbervalue
 	300 ;; secondary name server requests changes every 5 minutes 
 	60  ;; secondary name servers will retry a change request every 1 minute
 	604800 ;; secondary name server will etry change requests for a week before 
