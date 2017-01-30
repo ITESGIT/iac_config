@@ -21,7 +21,7 @@ function usage() {
 
 function extended_usage() {
     echo "$0 [-c] [-m STRING] -f FILE"
-    echo "This script will append a message to a specified files."
+    echo "This script will append a message to a specified file."
     echo "The message can be user defined, or 'test' by default"
 
     echo "OPTIONS:"
