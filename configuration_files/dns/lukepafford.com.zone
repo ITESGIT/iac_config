@@ -82,6 +82,7 @@ db-mongodb-01    IN A   192.168.2.117
 ;; Web Servers
 web-apache-01    IN A   192.168.2.120
 isos             IN CNAME  web-apache-01 
+web-apache-02    IN A   192.168.2.121
 web-nginx-01     IN A   192.168.2.125
 
 ;; Proxy Servers
