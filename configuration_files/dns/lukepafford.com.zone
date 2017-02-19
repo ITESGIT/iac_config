@@ -90,14 +90,15 @@ proxy-squid-01   IN A   192.168.1.130
 proxy-ha-01      IN A   192.168.1.134
 proxy-nginx-01   IN A   192.168.1.137
 
-;; RHCE test Servers
-auth-kerberos    IN A   192.168.1.210
+;; RHCE Test Servers
+rhce-kerberos    IN A   192.168.1.210
 rhce-db          IN A   192.168.1.211
 rhce-dns         IN A   192.168.1.212
 rhce-http        IN A   192.168.1.213
 rhce-nfs         IN A   192.168.1.214
 rhce-samba       IN A   192.168.1.215
 rhce-smtp        IN A   192.168.1.216
+puppet-server    IN A   192.168.1.217
 
 ;; routers
 router-01        IN A   192.168.1.250
