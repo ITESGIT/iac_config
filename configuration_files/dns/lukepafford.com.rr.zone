@@ -74,6 +74,15 @@ $TTL 6H
 134.1     IN  PTR     proxy-ha-01.lukepafford.com.
 137.1     IN  PTR     proxy-nginx-01.lukepafford.com.
 
+;; RHCE Test Servers
+210.1     IN  PTR     rhce-kerberos.lukepafford.com.
+211.1     IN  PTR     rhce-db.lukepafford.com.
+212.1     IN  PTR     rhce-dns.lukepafford.com.
+213.1     IN  PTR     rhce-http.lukepafford.com.
+214.1     IN  PTR     rhce-nfs.lukepafford.com.
+215.1     IN  PTR     rhce-samba.lukepafford.com.
+216.1     IN  PTR     rhce-smtp.lukepafford.com.
+
 ;;routers
 250.1     IN  PTR     router-01.lukepafford.com.
 
