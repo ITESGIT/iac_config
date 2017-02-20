@@ -84,6 +84,7 @@ $TTL 6H
 216.1     IN  PTR     rhce-smtp.lukepafford.com.
 217.1     IN  PTR     puppet-server.lukepafford.com.
 218.1     IN  PTR     puppet-client.lukepafford.com.
+219.1     IN  PTR     rhce-ldap.lukepafford.com.
 
 ;;routers
 250.1     IN  PTR     router-01.lukepafford.com.
