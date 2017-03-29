@@ -1,0 +1,8 @@
+# /etc/pam.d/system-auth
+auth 	optional	pam_krb5.so	use_first_pass
+
+# The following two lines were in the documentation
+# but made no sense as to why they are included
+# in a pam file
+no_subsequent_prompt
+preauth_optoins=x509_user_identity=PKCS11:/usr/lib64/pkcs11/libcoolkeypk11.so
