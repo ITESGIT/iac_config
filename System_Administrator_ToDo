@@ -1,0 +1,25 @@
+Large Projects every shop should have
+
+Servers
+--------
+Domain Controller
+DNS Servers
+Email Servers
+File Share (SMB/NFS)
+Web Server (Apache/Nginx)
+Load Balancers (Nginx/HaProxy)
+Proxy Servers (Apache/Nginx/Squid/HaProxy)
+Database servers ( Postgresql, MySQL, SQL Server, Oracle)
+Application Servers ( Java Tomcat)
+PXE Boot Server
+
+Miscellaneous
+-------------
+Wake on Lan
+Provisioning Solution
+Configuration Management
+Version control Systems
+Continuous Integration
+Policy based network scanning
+Robust, well documented backup solution for servers and databases
+Robust, well documented disaster recovery plan
