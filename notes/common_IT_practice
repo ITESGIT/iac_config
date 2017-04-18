@@ -1,0 +1,22 @@
+All references to documentation can, and should be centralized in a single version controlled
+system (git)
+
+1. Firewall specific diagram that lists all allowed traffic on the network
+2. Visio diagram of server architecture
+3. Imaging scripts (kickstart) must be stored in a single directory and documented
+4. ALL SCRIPTS USED ON SERVERS must be stored in an organized directory and documented
+5. Central location of isos must exist and be documented
+6. Ensure each server as a unique interface for at least management, and service (can further expand this for a log network, and whatever you want)
+
+Configs that should be checked into GIT:
+-------------------------------------------
+Alternatives
+/etc/alternatives
+
+Apache
+/etc/httpd/httpd.conf
+/etc/httpd/conf.d/ssl.conf
+
+Kick start scripts (imaging)
+
+

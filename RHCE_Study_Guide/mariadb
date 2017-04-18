@@ -1,0 +1,41 @@
+# 1. Install mariadb server
+    yum -y install mariadb-server
+
+# 2. enable and start the service
+    
+     sytemctl enable mariadb
+     systemctl start mariadb
+
+# 3. Secure the installation
+
+    mysql_secure_installation
+
+# 4. Run mysql on a different port. The book lists this so
+# it will probably be on the exam
+
+   # Modify /etc/my.cnf
+    [mysqld]
+    port=3307
+
+# 5. Configure the firewall
+
+    firewall-cmd --permanent --add-port=3307/tcp
+    firewall-cmd --reload
+
+# 6. Configure selinux port
+
+    semanage port -a -t mysqld_port_t -p tcp 3307
+
+# 7. Restart mariadb
+
+    systemctl restart 7mariadb
+
+# 8. login to the database and configure a database
+
+    mysql -p
+    CREATE DATABASE MYAPP;
+    CREATE TABLE widgets (
+    id  INT AUTO_INCREMENT,
+    name    VARCHAR(255),
+    PRIMARY KEY (id)
+    );

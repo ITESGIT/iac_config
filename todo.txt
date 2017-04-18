@@ -1,8 +1,23 @@
-1. Configure bind dns dynamic updates securely with gssTSIG, configure dnsssec, and configure rndc management
-2. Setup and install Satellite 6
-3. Configure kerberized NFS server, and create automount in FreeIPA for this NFS Server
-4. Setup email server
-5. Setup Backup server
-6. Setup nagios server
-7. Setup proxy server
+1. Do puppet training
+2. Master subscription management
+3. Finish setting up and documenting apache processes
+4. COMPLETE  Setup Load Balancer
+5. Setup proxy server
+6. Setup email server
+7. Setup Backup server
+8. Setup nagios server
+9. Configure bind dns dynamic updates securely with gssTSIG, configure dnsssec, and configure rndc management (Can't natively be done in freeipa. moving on)
+10. Configure kerberized NFS server, and create automount in FreeIPA for this NFS Server
 
+COMPLETE
+--------
+Setup and install Satellite 6 
+    - Setup tftp server
+
+
+20170211
+I am currently boucning around learning
+Python
+puppet
+RHCE material
+and RedHat Satellite

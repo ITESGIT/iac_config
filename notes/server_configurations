@@ -1,0 +1,73 @@
+The following actions are required for any service setup
+
+1. Install the service packages with yum or rpm
+
+    yum install service_package_name
+
+2. Configure the service to start on boot:
+    
+    systemctl enable service_name
+
+3. Modify the service configuration files in /etc
+    This task will be unique for each service, and will
+    require the most amount of time
+
+4. Configure the SElinux variables. If you won't use SELinux you need
+to disable it permanently with the following commands:
+
+    setenforce permissive
+    sed -i -e 's/SELINUX=enforcing/SELINUX=permissive/' /etc/sysconfig/selinux
+
+    ------------------------------------------------------------------------------
+    a. If you are leaving SElinux enabled, you need to configure the SELinux booleans
+        You can view the available boolean types for services in the directory:
+
+            /sys/fs/selinux/booleans
+
+        Grepping for the service name will normally filter out booleans for the specific
+        service:
+
+            ls -l /sys/fs/selinux/booleans | grep service_name
+        
+        Permenately set an Selinux boolean:
+
+             setsebool -P selinux_boolean
+
+    b. Configure the SElinux file contexts for the service
+        The safest way to configure file contexts is with the commands
+        'semanage fcontext' and 'restorecon'. chcon will not survive a filesystem
+        relabeling if a context differs from the default vlaue
+        defined in the SELinux policy
+        
+        The SElinux contexts are stored in the direcotry:
+            
+             /etc/selinux/targeted/contexts/files
+
+        Configure file contexts:
+
+             semanage fcontext -a -t selinux_context-type "/path/(/.*)?"
+             restorecon -R -v /path
+
+
+
+5. Start the service:
+
+    systemctl start service_name
+
+6. Confirm the necessary ports are open on the host based firewall. You must
+also ensure the network firewall is configured properly as well.
+
+    firewall-cmd --permanent --add-port=80/tcp
+    firewall-cmd --reload
+
+    OR
+
+    firewall-cmd --permanent --add-service=http
+    firewall-cmd --reload
+
+    OR
+
+    IPTABLES -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT (temporary)
+    Configure /etc/sysconfig/iptables for permanent config
+
+7. Test server functionality both locally and remotely

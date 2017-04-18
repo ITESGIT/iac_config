@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/lukepafford/Documents/iac_config/post_install'
+let g:netrw_dirhist_2='/etc/sysconfig/network-scripts'
+let g:netrw_dirhist_3='/home/lukepafford/Documents/iac_config/scap'
+let g:netrw_dirhist_4='/usr/share/media-player-info'
+let g:netrw_dirhist_5='/home/lukepafford/Documents/test'
+let g:netrw_dirhist_6='/sys/devices/pci0000:00/0000:00:14.0/usb3/3-2/3-2:1.0/ttyUSB0'
+let g:netrw_dirhist_7='/home/lukepafford/test'
+let g:netrw_dirhist_8='/etc/cron.daily'
+let g:netrw_dirhist_9='/home/lukepafford/test'

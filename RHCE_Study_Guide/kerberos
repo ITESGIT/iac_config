@@ -1,0 +1,28 @@
+1. Install Kerberos KDC
+yum install -y krb5-server
+
+2. Modify the realm 'EXAMPLE.COM' with your custom realm in the files:
+
+/etc/krb5.conf
+/var/kerberos/krb5kdc/kdc.conf
+
+
+3. Remove the '#' comments within the [realms] stanza in /etc/krb5.conf
+
+
+4. Initialize kerberos database with command
+    kdb5_util create -s
+
+    Follow prompts for master key passwords
+
+5. Start and enable kerberos services
+
+    systemctl start krb5kdc kadmin
+    systemctl enable krb5kdc kadmin
+
+6. configure firewall to allow connections
+
+    firewall-cmd --permanent --add-service=kerberos
+    firewall-cmd --reload
+
+

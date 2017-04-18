@@ -1,0 +1,7 @@
+This document will list pitfalls that i have read from books, or other people
+
+1. If the /etc/nologin file exists, regular users can not log into the local
+console. The behavior is controlled by the pam_nologin.so module. if local users
+cant login, look for that file
+
+2. 

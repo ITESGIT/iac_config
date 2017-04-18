@@ -1,0 +1,81 @@
+CREATE AN ISCSI TARGET
+
+1. Install targetcli. this is the main utility to interact with iscsi
+    
+    yum install -y targetcli
+
+2. Enable the service
+    
+    systemctl enable target
+
+3. Execute the utility
+    
+    targetcli
+
+4. Create a block backstore. This will be created off an existing disk.
+This could be a single disk, raid, logical volume, or basically any block device
+
+    backstores/block create backstore_name /dev/sdb
+
+5. Create an IQN (Iscsi Qualified Name)
+This is the most difficult step because for some reason you have to follow strict syntax
+naming convention
+
+    /iscsi create iqn.yyyy-mm.reverse.dns.name:unique_name
+
+    Where:
+        a. yyyy-mm is the year and month the naming authority was
+        established (Confirmed any yyyy-mm will work, but you might as well make it useful)
+        b. reverse.dns.name is the revers dns name of the host
+        c. unique_name is any unique string
+    Example:
+    /iscsi create iqn.2017-02.com.lukepafford.vh-kvm-01:iscsi-3
+
+6. Create an ACL for the client machine. The syntax is similar to the iqn:
+
+    /iscsi/iqn.2017-02.com.lukepafford.vh-kvm-01:iscsi-3/tpg1/acls create iqn.2017-02.com.lukepafford.vh-kvm-01:client_hostname
+
+7. Create a LUN under the target
+
+    cd /iscsi/iqn.2017-02.com.lukepafford.vh-kvm-01:iscsi-3/tpg1/luns
+    create /backstore/block/backstore_name
+
+8. Configure access to allow iscsi access
+firewall-cmd --permanent --add-service="iSCSI target"
+or 
+firewall-cmd --permanent --add-port=3260/tcp
+
+firewall-cmd --reload
+
+The iscsi target is now complete
+
+
+CREATE AN ISCSI INITIATOR
+
+1. Install initiator package
+    yum install iscsi-initator-utils -y
+
+2. Configure the iscsi client
+    vi /etc/iscsi/initatorname.iscsi
+
+    Modify the line to fit the acl set on the target:
+    
+        InitiatorName=iqn.2017-02.com.lukepafford.vh-esxi:rh-satellite-01
+
+3. You must run the following command to discover the target on the specific IP
+The syntax is complex, so memorize the form
+
+    iscsiadm -m discovery -t st -p 192.168.1.102
+    
+4. Once complete, restart and enable the iscsid service
+    
+    systemctl restart iscsid.service
+    systemctl enable iscsid.service
+
+5. login to the discovered target. you must specify the target iqn value, not your
+    client iqn. That IQN value was for acl authentication
+
+    iscsiadm -m node -T iqn.2017-02.com.lukepafford.vh-esxi-01:iscsi-2
+
+ I really dont know how this stays persistent. I think the login inherently creates
+ a persistent connection across reboots, but I just know it works..

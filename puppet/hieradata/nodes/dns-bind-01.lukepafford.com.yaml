@@ -1,0 +1,7 @@
+---
+profile::bind::filemode: '0640'
+profile::bind::dirmode: '0750'
+profile::bind::owner: 'root'
+profile::bind::group: 'named'
+profile::bind::confdir: '/etc'
+profile::bind::zonedir: '/var/named'

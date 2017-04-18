@@ -1,0 +1,35 @@
+# 1. Install packages
+    yum -y install nfs-utils
+
+# 2. Enable firewall
+    firewall-cmd --permanent --add-service=nfs
+    firewall-cmd --reload
+
+# 3. Configure SeLinux
+# The booleans nfs_export_all_ro and nfs_export_allrw
+# are turned on by default. no configuration is required
+#
+# 4. Enable and Start services
+
+    systemctl enable nfs-server
+    systemctl start nfs-server
+ 
+ # 5. Configure nfs server for kerberos
+ 
+    systemctl enable nfs-secure-server
+    systemctl start nfs-secure-server
+
+ # 6. The client must configure to use secure kerberos as well
+    systemctl enable nfs-secure
+    systemctl start nfs-secure
+
+ # 7. Download required packages for client to authenticate with kerberos
+ 
+    yum -y install krb5-workstation pam_krb5
+
+ # 8. use the kadmin tool on the remote client to add principals to the keytab
+ #  on both the client and server. Or if the ports aren't opened on the kerberos host, you must
+ #  run kadmin.local on the kerberos server, and scp the generated keytabs to the other hosts
+ #
+ #  On the client you must add the host keytab for the client server, and add the host, AND snfs service principal
+ #  for the nfs server.

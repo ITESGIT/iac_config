@@ -1,0 +1,100 @@
+$ORIGIN 168.192.in-addr.arpa.
+$TTL 6H
+
+;; Begin SOA record
+@ 	IN 	SOA	dns-bind-01.lukepafford.com.	lukepafford@gmail.com (
+	2017032100 ;; serial numbervalue
+	300 ;; secondary name server requests changes every 5 minutes 
+	60  ;; secondary name servers will retry a change request every 1 minute
+	604800 ;; secondary name server will etry change requests for a week before 
+	       ;; it stops considering the primary server as an authority
+	3600    ;; records remained cached for 1 hour
+)
+
+
+;; Begin NS records
+;; All lines that begin with "IN" require at least one line of whitespace
+	IN 	NS 	dns-bind-01.lukepafford.com.
+	IN 	NS 	dns-bind-02.lukepafford.com.
+
+;; Begin PTR records
+;; Domain Controller Servers
+1.2      IN  PTR     dc-ipa-01.lukepafford.com.
+2.2       IN  PTR     dc-ipa-02.lukepafford.com.
+
+;; DNS Servers
+5.2 	    IN 	PTR  	dns-bind-01.lukepafford.com. 
+6.2	    IN 	PTR  	dns-bind-02.lukepafford.com. 
+7.2	    IN	PTR  	dns-bind-03.lukepafford.com. 
+8.2       IN  PTR     dns-bind-04.lukepafford.com.
+
+;; DHCP Servers
+15.2	    IN 	PTR	    dhcp-isc-01.lukepafford.com.
+
+;; VPN Servers
+20.2      IN  PTR     vpn-openvpn-01.lukepafford.com.
+
+;; File Servers
+25.2      IN  PTR     file-nfs-01.lukepafford.com.
+30.2      IN  PTR     file-samba-01.lukepafford.com.
+31.2      IN  PTR     file-samba-02.lukepafford.com.
+
+;; Backup Servers
+40.2      IN  PTR     backup-amanda-01.lukepafford.com.
+
+;; Management Servers
+50.2      IN  PTR     mgr-ovirt-01.lukepafford.com.
+52.2      IN  PTR     mgr-vcenter-01.lukepafford.com.
+
+;; Mail Servers
+60.2      IN  PTR     mail-postfix-01.lukepafford.com.
+63.2      IN  PTR     mail-dovecot-01.lukepafford.com.
+
+;; Monitoring Servers
+70.2      IN  PTR     log-nagios-01.lukepafford.com.
+
+;; Physical Hosts
+101.2 	IN 	PTR 	vh-esxi-01.lukepafford.com.
+102.2  	IN 	PTR 	vh-kvm-01.lukepafford.com.
+103.2     IN  PTR     centos7-l01.lukepafford.com.
+
+;; Database Servers
+110.2     IN  PTR     db-postgresql-01.lukepafford.com.
+114.2     IN  PTR     db-mariadb-01.lukepafford.com.
+117.2     IN  PTR     db-mongodb-01.lukepafford.com.
+
+;; Web Servers
+120.2     IN  PTR     web-apache-01.lukepafford.com.
+121.2     IN  PTR     web-apache-02.lukepafford.com.
+125.2     IN  PTR     web-nginx-01.lukepafford.com.
+
+;; Proxy Servers
+130.1     IN  PTR     proxy-squid-01.lukepafford.com.
+134.1     IN  PTR     proxy-ha-01.lukepafford.com.
+137.1     IN  PTR     proxy-nginx-01.lukepafford.com.
+
+;; Satellite and Puppet
+175.1	  IN  PTR     rh-satellite-01.lukepafford.com.
+
+;; RHCE Test Servers
+210.1     IN  PTR     rhce-kerberos.lukepafford.com.
+211.1     IN  PTR     rhce-db.lukepafford.com.
+212.1     IN  PTR     rhce-dns.lukepafford.com.
+213.1     IN  PTR     rhce-http.lukepafford.com.
+214.1     IN  PTR     rhce-nfs.lukepafford.com.
+215.1     IN  PTR     rhce-samba.lukepafford.com.
+216.1     IN  PTR     rhce-smtp.lukepafford.com.
+217.1     IN  PTR     puppet-server.lukepafford.com.
+218.1     IN  PTR     puppet-client.lukepafford.com.
+219.1     IN  PTR     rhce-ldap.lukepafford.com.
+
+;; Hacking Servers
+220.1	  IN  PTR     metasploit-01.lukepafford.com.
+
+;; Antivirus Servers
+230.1	  IN  PTR     av-clam-01.lukepafford.com.
+
+;;routers
+250.1     IN  PTR     router-01.lukepafford.com.
+254.2	  IN  PTR     router-01.lukepafford.com.
+

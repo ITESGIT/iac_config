@@ -1,5 +1,5 @@
 #!/bin/bash
-# To run this command you must have the open-scap package
+# To run this command you must have the openscap-scanner package
 # installed
 
 HOSTNAME="$(hostname)"

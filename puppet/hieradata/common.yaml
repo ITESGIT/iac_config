@@ -1,0 +1,34 @@
+---
+profile::bind::domain: 'lukepafford.com'
+profile::bind::packages:
+  - bind
+  - bind-libs
+  - bind-chroot
+base::packages:
+  - vim
+  - git
+  - openscap-scanner
+  - net-tools
+sssd::packages:
+  - nss-tools
+  - nss-pam-ldapd
+  - esc
+  - pam_pkcs11
+  - pam_krb5
+  - coolkey
+  - pcsc-lite-ccid
+  - gdm
+  - authconfig
+  - authconfig-gtk
+  - krb5-libs
+  - krb5-workstation
+  - pcsc-lite
+  - pcsc-lite-libs
+  - oddjob-mkhomedir
+  - sssd-client
+  - sssd-libwbclient
+  - adcli
+  - samba-common
+  - samba-client
+  - sssd
+  

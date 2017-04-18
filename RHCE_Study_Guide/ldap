@@ -1,0 +1,23 @@
+1.  Install ldap packages
+
+yum install -y 389-ds-base
+
+2. Configure firewall
+
+firewall-cmd --permanent --add-port=389/tcp
+firewall-cmd --permanent --add-port=636/tcp
+firewall-cmd --permanent --add-port=9830/tcp
+
+firewall-cmd --reload
+
+3. run setup wizard, most defaults should be good
+
+    setup-ds.pl
+
+4. Start and configure services to start at boot
+
+    systemctl enable dirsrv.target
+    systemctl enable dirsrv-admin
+
+    systemctl start dirsrv.target
+

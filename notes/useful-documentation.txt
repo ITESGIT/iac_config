@@ -1,0 +1,49 @@
+This file lists all requirements that need to be in information to make
+it as valuable as it can be, without leavining out any details.
+
+This documentat basically boils down to "Answer the 5 W's"
+
+The goal is that any time i perform any actions on a production server I should be
+prepared to answer all of these questions no matter what. My documentation should
+be this thorough. Now working on things like a test network aren't as critical,
+however it's probably best to commit this habit to all aspects of my life.
+
+Steps to creating valuable documentation
+----------------------------------------
+1. When did the actions happen that I performed?
+Solution: Figure out how to apply a timestamp to everything that i do
+Most programming langauges (if not all) have features that let you easily
+apply a timestamp.
+
+2. Who performed the actions?
+Solution: If I was not the person to perform an action, but I am writing what
+happened, then I just have to write down the name of the person that performed
+the actions. I don't think there is an easy way to automate this solution, but
+I just have to be proactive.
+
+The "who" is generally answered with logging tools already implemented for
+security purposes. However if i could attach the security principal to my scripts, that
+would be beneficial
+
+3. What did the actions do?
+This is the most obvious reason for documentation. However to be as valuable as 
+it can be, every detail that can possibly be listed, should be listed.
+Solution: List every step that was taken on a production server. Ultimately
+it should be so detailed, that it is turned into a script, and able to be
+repeated by simply running the script.
+
+4. Where did the actions occur?
+This is one of the easiest questions to answer, yet i don't see it answered
+often. This is as simple as saying the names of the devices that you performed an action
+Solution: List every single device name that where an action occurred. 
+
+5. Why did the actions occur?
+Now this step is generally not for my benefit, but my co workers and managers.
+Solution: go into what may seem like an unneccesary amount of detail for explaining
+why I'm performing the steps. This may be the determining factor in whether not
+a change is approved or denied.
+
+6. How much will the action cost?
+This is an optional step that should obviously be implemented if any action
+that is to be implemented requires a financial cost.
+

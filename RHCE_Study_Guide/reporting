@@ -1,0 +1,16 @@
+# Produce and deliver reports on system utilization (processor, memory, disk, and network)
+
+# Install sysstat if not installed
+yum install sysstat -y
+
+# Enable service and start if not enabled
+systemctl enable sysstat
+systemctl start sysstat
+
+# Produce a report for any given day. Using the 11th as an example
+sadf -d /var/log/sa/sa11 -- -u -r -dp -n DEV
+
+
+Notable commands are sar and sadf.
+
+

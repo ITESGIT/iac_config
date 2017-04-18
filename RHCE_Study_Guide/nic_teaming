@@ -1,0 +1,33 @@
+1. Enable bonding kenrel module as it is not enabled by default
+modprobe --first-time bonding
+
+2. Bonding example
+
+create ifcfg script called ifcfg-bond0 with values:
+DEVICE=bond0
+NAME=bond0
+DEVICETYPE=bond
+BONDING_MSATER=yes
+IPADDR=192.168.2.120
+NETMASK=255.255.255.0
+GATEWAY=192.168.2.254
+DNS1=192.168.2.7
+DNS2=192.168.2.8
+ONBOOT=yes
+BOOTPROTO=none
+
+# Slave bond configurations
+DEVICE=ethN
+NAME=bond0-slave
+TYPE=ETHERNET
+BOOTPROTO=none
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+
+3. copy the examples from the teamd ifcfg files at
+
+/usr/shrae/doc/teamd*/example_ifcfgs
+
+Copy the script and modify it to what logically makes sense. (Replace device names and network informatoin
+with real information.

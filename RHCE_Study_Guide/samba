@@ -1,0 +1,27 @@
+# #!/bin/bash
+#
+# 1. Install samba packages
+    yum -y install samba samba-client
+
+# 2. Configure firewall
+    firewall-cmd --permanent --add-servcie=samba
+    firewal-cmd --reload
+
+# 3. Create share directories and configure selinux
+    mkdir -p /shares/samba_share
+
+    # Change the context
+    chcon -R -t samba_share_t /shares
+
+    # Chagne context to survive reboot
+    semanage fcontext -a -t samba_share_t '/shares(/.*)?'
+
+# 4. set group sticky bit to allow all files to inherit group ownership
+
+    chmod -R 2777 /shares
+
+#     or set user sticky bit to allow only the user to be able to delete or rename a file
+
+    chmod -R 1777 /shares
+
+

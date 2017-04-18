@@ -29,6 +29,9 @@ _ldap._tcp.lukepafford.com.            86400 IN SRV 0 100 389 dc-ipa-01.lukepaff
 _ntp._udp.lukepafford.com.             86400 IN SRV 0 100 123 dc-ipa-01.lukepafford.com.
 ipa-ca.lukepafford.com.                86400 IN A 192.168.2.1
 
+;; Begin MX records
+lukepafford.com 6H  IN  MX  10  mail-postfix-01.lukepafford.com.
+
 ;; Begin A records
 ;; Domain Controller Servers
 dc-ipa-01       IN  A   192.168.2.1

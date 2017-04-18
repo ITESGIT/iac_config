@@ -1,0 +1,18 @@
+# Install Apache
+yum install httpd -y # guide recommends yum group install "Web Server"
+                     # As it includes more required packages
+
+# Enable the service
+systemctl enable httpd
+
+
+# Start the servcie
+systemctl start httpd
+
+# Enable httpd through firewall
+firewall-cmd --add-service=http --permanent
+firewall-cmd --add-service=https --permanent
+firewall-cmd --reload
+
+
+

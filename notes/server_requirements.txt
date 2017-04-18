@@ -1,0 +1,24 @@
+Servers should have the following same configurations, applied to them
+through a config management tool
+
+1. Configure interfaces to use DNS forwarders
+2. Joining the domain (Freeipa or winbind)
+3. Automounting file servers (smb and nfs) with /etc/fstab or automount
+4. Install agent for puppet server, or Satellite server
+5. Configure server to send data to backup server
+6. Configure server to send logs to central log server
+7. Configure server to send email to central smtp server
+8. Configure server to sync time with central time server (ntp/chrony)
+9. Configure server to send snmp agent data to central snmp server
+
+
+General configurations
+-------------------------
+1. Configure all servers to have SSH on and listening on the same port
+
+
+
+Security Hardening:
+---------------------
+1. Allow root login on only one securetty
+2. Disable Root SSH

@@ -1,0 +1,14 @@
+{
+  "name": "puppetlabs-inventory",
+  "version": "0.4.0",
+  "author": "Gareth Rushgrove",
+  "summary": "Provides a Puppet face for dumping an inventory of a node",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetlabs/puppetlabs-inventory.git",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-inventory",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-inventory/issues",
+  "dependencies": [
+  
+  ],
+  "data_provider": null
+}

@@ -1,0 +1,23 @@
+{
+  "Gemfile": "60a8eb94c3bbd0709e175e5c9ab2eef9",
+  "Guardfile": "67edb0cdab613cac1a569529276e4bb6",
+  "README.md": "7df0b9d8bec0fba91436ea3dd07ba2db",
+  "Rakefile": "91f59a1f8f037969bbc7dd855783af08",
+  "examples/example.json": "e827e61bb3ac3955933ea93f98c94a9a",
+  "examples/example.yaml": "0016bf7d75d5064ed03321bd7bffc1e5",
+  "examples/sample-inventory.json": "00443697087b81680362b05217c22001",
+  "lib/puppet/application/inventory.rb": "fa229ff32861ae14e699661ead9856bd",
+  "lib/puppet/face/inventory.rb": "8bddfe820bbdc8ee796953b47c324aa0",
+  "lib/puppet_x/puppetlabs/facts_inventory.rb": "83d8e5577d2a8d08d363a324bc73d7d2",
+  "lib/puppet_x/puppetlabs/inventory.rb": "15b77d5e4dc1556f369e9e29c538d411",
+  "metadata.json": "6bcb426a709e8f7d9eaad9224def0b79",
+  "spec/acceptance/inventory_spec.rb": "f4bff21db3d8a02fd9d67d7f4c31f407",
+  "spec/acceptance/nodesets/centos-7.yml": "273c22f815f9ff1930487213e55c95a8",
+  "spec/acceptance/nodesets/default.yml": "273c22f815f9ff1930487213e55c95a8",
+  "spec/acceptance/nodesets/ubuntu-16.04.yml": "8435cf2c39ab4049cce3950f61cc3ee3",
+  "spec/spec_helper.rb": "bf2e48da2849ca18d1c8502c85fa0501",
+  "spec/spec_helper_acceptance.rb": "00ff54dd057b9beb389be45d77b28a87",
+  "spec/unit/facts_inventory_spec.rb": "cd183a9d4df7635bb01656d7865d5329",
+  "spec/unit/inventory_face_spec.rb": "50ce4b6cec8b4ceab0766cd61f703dd9",
+  "spec/unit/inventory_spec.rb": "2717a8f6bdf050f076b2fbf1a0b546a7"
+}
