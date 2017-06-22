@@ -19,7 +19,8 @@ PREREQS=(
 	wget
 	gcc
 	make
-	virtualenv
+	zlib-devel
+	python-virtualenv
 )
 
 # Ensure prerequisite packages are installed
