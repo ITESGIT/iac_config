@@ -1,6 +1,8 @@
 #!/bin/bash
 # This script will use the bandersnatch tool to locally mirror Python modules
 # Python >= 3.5 must be installed on the machine to configure bandersnatch
+# RedHat machines won't be able to install the 'virtualenv' command. I need to modify this script to wget
+# the latest virtualenv software, and install it.
 
 # Python Install dir
 PYTHON_DIR=/opt
@@ -19,7 +21,9 @@ PREREQS=(
 	wget
 	gcc
 	make
-	virtualenv
+	zlib-devel
+	openssl
+	openssl-devel
 )
 
 # Ensure prerequisite packages are installed
@@ -46,7 +50,7 @@ if [[ ! -d "${PYTHON_DIR}/Python-3.6.0" ]]; then
 fi
 
 # Install latest stable version of bandersnatch
-if [[ ! -d "${BANNER_DIR}" ]]; then
+if [[ ! -d "${BANDER_DIR}/web" ]]; then
 	virtualenv --python=python3.6 "${BANDER_DIR}"
 	cd "${BANDER_DIR}"
 	pip3.6 install -r https://bitbucket.org/pypa/bandersnatch/raw/stable/requirements.txt
