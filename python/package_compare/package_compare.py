@@ -4,17 +4,13 @@ import urllib.request
 import itertools
 import sys
 
-
 def main():
 	# Define variables
-
 	urls = { 
 			'redhat6':  'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/Package_Manifest/index.html',
 			'redhat7':  'https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7//html-single/Package_Manifest/index.html'
 			}
-
 	column = 1
-	
 	filenames = [
 			'redhat6_packages.txt',
 			'redhat7_packages.txt',
@@ -22,7 +18,6 @@ def main():
 			'unique_in_redhat6.txt',
 			'unique_in_redhat7.txt'
 			]
-
 
 	# Begin program
 	packages = dict()
@@ -54,7 +49,6 @@ def main():
 	write_set_results(filenames[3], unique_in_redhat6)
 	write_set_results(filenames[4], unique_in_redhat7)
 		
-	
 def get_soup(url):
 	""" 
 		INPUT: 
