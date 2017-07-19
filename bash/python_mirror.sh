@@ -4,6 +4,7 @@
 # RedHat machines won't be able to install the 'virtualenv' command. I need to modify this script to wget
 # the latest virtualenv software, and install it.
 
+
 # Python Install dir
 PYTHON_DIR=/opt
 # Set this variable equal to a location with the largest space
@@ -14,6 +15,10 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 if [[ "${EUID}" != 0 ]]; then
 	echo "Script must be executed as root"
 	exit 1
+fi
+
+if [[ ! -f '/etc/yum.repos.d/epel.repo' ]]; then
+	yum -y install epel-release
 fi
 
 # Prerequisite packages
