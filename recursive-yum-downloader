@@ -10,6 +10,6 @@ if ! which yumdownloader > /dev/null; then
        exit 1
 fi
 
-package_deps=$(sort <(sed -e 's/ [| \\\_]\+\|-[[:digit:]]\+..*\|[[:digit:]]\://g' <(repoquery --tree-requires $1 2> /dev/null)) | uniq)
+package_deps=$(sort <(sed -e 's/ [| \\\_]\+\|-[[:digit:]]\+..*\|[[:digit:]]\://g' <(repoquery --tree-requires $@ 2> /dev/null)) | uniq)
 
 yumdownloader $package_deps
