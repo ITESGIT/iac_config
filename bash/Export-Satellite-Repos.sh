@@ -16,7 +16,7 @@ IDS=$( hammer repository list --organization ${ORG} | grep '^[[:digit:]]' | cut 
 chgrp foreman "${TEMPORARY_EXPORT_DIR}" && chmod 0775 "${TEMPORARY_EXPORT_DIR}"
 
 # Set the pulp export directory to the new temporary location
-hammer settings set --name "pulp_export_destination" --value "${PERMANENT_EXPORT_DIR}"
+hammer settings set --name "pulp_export_destination" --value "${TEMPORARY_EXPORT_DIR}"
 
 # Export all Satellite repositories to the defined temporary export directory.
 # Only export the number of repositories defined in the PROCESS_LIMIT variable at a time
