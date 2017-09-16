@@ -1,23 +1,18 @@
 # iac_config
 
-I have changed the purpose of this repository several times as I have advanced my skills with
-Linux, and various tools. I began by creating inflexible kickstart scripts, bash scripts, 
-and config files. 
-
-After discovering how powerful configuration management tools are, I became amazed at how 
-unproductive I (and most people) are at system administration. 
-Configuring a server is easy... Like really easy. 
-Configuring 100+ functional servers, that all work together? Not as easy.
-
-Fortunately, Puppet is here to save the day. I will leave my previous files intact, 
-but this repository will mainly be for my Puppet modules (and ruby assuming I stick with it). 
-My Puppet development is done on my own Git server, that is automatically pushed to my Puppet server. 
-That kind of defeats the purpose of this repository, as I am now developing locally. 
-
-I'm still debating if I want to reconfigure my workflow, and move my Puppet development to this repository, but it isn't close to a priority at this time.
+This repository has been my place to pretty much dump a lot of my files. Most of the files here
+are unorganized, and useless for anyone but myself. If you happen to have stumbled upon this page,
+then here are the only files that may be of use to you:
 
 
-NOTE - While I don't have any passwords in any files, I do have site data scattered across all my files.I don't really care if people know my home configuration, as it is all a playground. Besides, The goal is to get to the point where I can rebuild my environment with a couple scripts if need be (PowerCLI mass VM deploy / Provision Tool ? / Puppet)
+recursive-yum-downloader: if you work in an offline environment, and need to pull down all dependencies for a package, then this is great. ex - recursive-yum-downloader ansible
 
+kickstarts/: Good if you want an example of a kickstart with working syntax. I built these when I was first learning, so you definitely shouldn't be building indvidiual kick starts per server, but the files hsould be generated programatically
 
+bash/Export-Satellite-Repos.sh: If you use RedHat Satellite 6 (Im so sorry) this will export
+all the repositories to the directory that you specify within the script
 
+python/DirectoryBuilder.py: Read the documentation in the script. Came in clutch a few times
+
+notes/server_configurations: While studying for the RHCSA I created a document that specified all the
+requirements for configuring a service. Well it turns out this was a pretty good overview. I recommend reading this if you configure services on Redhat

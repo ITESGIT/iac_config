@@ -1,10 +1,34 @@
-#!/usr/local/bin/python3.6
+#!/usr/bin/env python
 import os
 import shutil
 
 class DirectoryBuilder:
         """
         Builds directories from list of files
+
+	If for some reason you had a directory of nested files
+	that got copied to another location, except the new location
+	flattened all the files, then this script will rebuild those paths.
+	You just need to know the new directory, and where they originated from.
+
+	For example, if you had a directory that looked like the following:
+	/test/file1
+	/test/dir1
+	/test/dir1/file2
+	/test/dir1/file3
+
+	And you, or a program copied these files to a new directory that looked like this:
+	/test2/file1
+	/test2/file2
+	/test2/file3
+
+	Then modifying the main section of this script with these parameters will cause it to
+	rebuild those paths:
+	
+	files = DirectoryBuilder('/test2', '/test1')
+	files.rename_files()
+
+	I have surprisingly had a use case for this script a surprising amount of times.
         """
         # Constants
         dirpath = 0
@@ -41,5 +65,5 @@ class DirectoryBuilder:
                                 f.write('{0}\n'.format(filename))
 
 if __name__ == '__main__':
-        files = DirectoryBuilder('/mnt/ssd-sdb1/PyPi-Export-2017-08-24_02:44', '/home/bandersnatch')
+        files = DirectoryBuilder('/test2', '/test1')
         files.rename_files()
