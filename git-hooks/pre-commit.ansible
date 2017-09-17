@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Check if ansible-lint is installed
+if ! rpm -q ansible-lint > /dev/null 2>&1; then
+	cat <<-EOF
+	ansible-lint has not been installed
+	This Git pre-commit hook has been installed into a repository designed
+	to check the syntax of Ansible playbooks.
+	If this is an ansible repository, then install the software with
+	the command yum -y install ansible-lint
+	Otherwise, delete the hook in .git/hooks/pre-commit
+EOF
+	exit 1
+fi
+
+# Check each playbook in this repository. This may want to be modified to only
+# check the playbook from the currently executed roel (this increases the complexity of the script)
+# if the playbook checks take too long. However I like knowing each commit doesn't break anything
+# in the entire repo
+for playbook in $(find $(git rev-parse --show-toplevel) -type f -wholename "*playbooks*.yml"); do
+	if ! ansible-lint "${playbook}"; then
+		echo "Git pre-commit check failed on playbook ${playbook}"
+		exit 1
+	fi
+done
