@@ -76,6 +76,10 @@ function Prereq_Install {
 
 	echo "Installing prerequisite packages for ansible-pull"
 	yum -y install "${packages[@]}" > /dev/null 2>&1
+	if [[ "$?" -ne 0 ]]; then
+		echo "Failed install of packages ${packages[@]}"
+		exit 1
+	fi
 }
 
 function Create_Service_Account {
